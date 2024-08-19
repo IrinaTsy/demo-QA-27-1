@@ -1,0 +1,75 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.10.0'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+allure {
+    report {
+        version.set("2.19.0")
+    }
+    adapter { // отвечает за появление папочки build/allure-results
+        aspectjWeaver.set(true) //обработка аннотации @Step
+        frameworks {
+            junit5 { //название фреймворка
+                adapterVersion.set("2.19.0") //версия интеграции фреймворка и Allure
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+compileJava {
+    options.encoding = 'UTF-8'
+}
+
+compileTestJava{
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    testImplementation(
+            'com.codeborne:selenide:7.2.3',
+            'org.junit.jupiter:junit-jupiter:5.10.2',
+            'org.slf4j:slf4j-simple:2.0.7',
+            'com.github.javafaker:javafaker:1.0.2',//генерация данных
+            'commons-io:commons-io:2.15.0',
+            'com.codeborne:pdf-test:1.5.0', //библиотека для чтения PDF-файлов
+            'com.codeborne:xls-test:1.4.3', //("com.codeborne:xls-test:1.4.3"){exclude
+                                            // group:'название библиотеки', module:'название библиотеки'} - если две зависимости
+                                            // подключают одну и ту же библиотеку, но разных версий (транзитивные зависимости)
+            'com.opencsv:opencsv:5.9',
+            'com.google.code.gson:gson:2.10.1',
+            'com.fasterxml.jackson.core:jackson-core:2.13.1',
+            'com.fasterxml.jackson.core:jackson-databind:2.10.0',
+            'org.assertj:assertj-core:3.25.3',
+            'io.qameta.allure:allure-selenide:2.19.0'
+    )
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+task simple_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("simple")
+    }
+}
+
+task demoqa_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("demoqa")
+    }
+}

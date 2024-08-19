@@ -1,0 +1,11 @@
+{
+  "title": "home",
+
+  "address": {
+    "country": "Israel",
+    "city": "Ashdod",
+    "street": "Dov Gur",
+    "houseNumber": 38,
+    "apartmentNumber": 2
+  }
+}
