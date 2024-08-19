@@ -15,7 +15,7 @@ public class WebAnnotatedTest {
 
     @Test
 
-    public void testAnnotatedStep() {
+    public void annotatedStepTest() {
 
         SelenideLogger.addListener("allure", new AllureSelenide());
       AllureWebSteps steps = new AllureWebSteps();
