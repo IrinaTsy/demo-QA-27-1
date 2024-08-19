@@ -14,7 +14,7 @@ public class WebAnnotatedTest {
     private static final int ISSUE = 85;
 
     @Test
-    @Disabled
+
     public void testAnnotatedStep() {
 
         SelenideLogger.addListener("allure", new AllureSelenide());
