@@ -8,7 +8,7 @@ version = '1.0-SNAPSHOT'
 
 allure {
 
-    adapter {
+    adapter {//понижение версии джавы
         aspectjVersion.set("1.9.21")
     }
     report {

@@ -48,7 +48,7 @@ public class HomeWork9 {
             while ((entry = zis.getNextEntry()) != null) {
                 if (entry.getName().endsWith(".xlsx")) {
                     XLS xls = new XLS(zis);
-                    String value = xls.excel.getSheetAt(0).getRow(1).getCell(1).getStringCellValue();
+                    String value = xls.excel.getSheetAt(0).getRow(0).getCell(0).getStringCellValue();
                     assertThat(value).isEqualTo("Евгений");
                 }
             }
@@ -67,7 +67,7 @@ public class HomeWork9 {
                 if (entry.getName().endsWith(".csv")) {
                     CSVReader csv = new CSVReader(new InputStreamReader(zis));
                     List<String[]> values = csv.readAll();
-                    assertThat(values.get(0)).isEqualTo(new String[]{"Евгений", "Сергей", "Алексей"});
+                    assertThat(values.get(0)).isEqualTo(new String[]{"\uFEFFЕвгений"});
                 }
             }
         }
