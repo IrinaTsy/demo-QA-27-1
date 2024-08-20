@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
-@Tag("demoqa")
+
 public class RegistrationRemoteTest {
 
 
@@ -19,10 +19,13 @@ public class RegistrationRemoteTest {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
+       // Configuration.holdBrowserOpen = true;
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub"; //запуск тестов через
+                                        //сервер интернет-ферм Selenoid
     }
 
     @Test
-    
+    @Tag("demoqa")
     void fillStudentRegistrationFormTest() {
 
         step("Открываем главную страницу", () -> {
