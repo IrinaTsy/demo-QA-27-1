@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
+@Tag("demoqa")
 public class RegistrationRemoteTest {
 
 
@@ -21,7 +22,7 @@ public class RegistrationRemoteTest {
     }
 
     @Test
-    @Tag("demoqa")
+    
     void fillStudentRegistrationFormTest() {
 
         step("Открываем главную страницу", () -> {
