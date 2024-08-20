@@ -66,11 +66,12 @@ tasks.withType(Test) {
     }
 }
 
-task simple_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("simple")
-    }
-}
+//task simple_test(type: Test) {
+ //   useJUnitPlatform {
+  //      includeTags("simple")
+  //      //excludeTags("registration") - если нужно что-то проигнорировать
+  //  }
+//}
 
 task demoqa_test(type: Test) {
     useJUnitPlatform {
