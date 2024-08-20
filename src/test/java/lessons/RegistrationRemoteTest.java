@@ -20,7 +20,7 @@ public class RegistrationRemoteTest {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
        // Configuration.holdBrowserOpen = true;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub"; //запуск тестов через
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";//запуск тестов через
                                         //сервер интернет-ферм Selenoid
     }
 
