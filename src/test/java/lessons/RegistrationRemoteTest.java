@@ -50,7 +50,7 @@ public class RegistrationRemoteTest {
 
     }
 
-    
+
     @Test
     @Tag("demoqa")
     void fillStudentRegistrationFormTest() {
